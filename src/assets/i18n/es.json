@@ -1,0 +1,10 @@
+{
+    "home": {
+        "main-title": "Issues Github",
+        "sub-title": "Aplicación para consultar los issues de un reporisorio en GitHub",
+        "label-repo": "Introduce la url de un repositorio en Github"
+    },
+    "detail-issues": {
+        "texto": "texto cualquiera"
+    }
+}

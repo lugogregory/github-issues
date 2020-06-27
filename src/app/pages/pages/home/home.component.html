@@ -1,0 +1,10 @@
+<div class="ficha">
+    <h1 class="text-center mt-2 mb-3">{{"home.sub-title" | translate}}</h1>
+    <mat-form-field class="input-repo mt-2">
+        <mat-label>{{"home.label-repo" | translate}}</mat-label>
+        <input class="input-repo" matInput type="text" [(ngModel)]="repoInput">
+        <button class="button-close-input" mat-button *ngIf="repoInput" matSuffix mat-icon-button aria-label="Clear" (click)="repoInput=''">
+          <mat-icon>close</mat-icon>
+        </button>
+    </mat-form-field>
+</div>

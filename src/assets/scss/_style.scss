@@ -37,7 +37,31 @@ a {
 }
 
 
-/**/
+/*-------------------------------------------- Modificaciones de Bootstrap */
+
+.bg-dark {
+    background-color: $bg-header !important;
+}
+
+.max-width-container {
+    max-width: 1440px;
+}
+
+
+/*-------------------------------------------- Modificaciones de Material */
+
+.mat-form-field.mat-focused .mat-form-field-label {
+    color: $bg-header !important;
+}
+
+.mat-form-field.mat-focused .mat-form-field-ripple {
+    background-color: $bg-header !important;
+}
+
+.button-close-input {
+    background-color: transparent;
+    border: none;
+}
 
 
 /*-------------------------------------------- Clases genéricas*/
@@ -50,10 +74,14 @@ a {
 
 .ficha {
     position: relative;
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: $bg-ficha;
     border-radius: 0.625rem;
     padding: 1em 1.25em;
-    height: auto;
+    height: 100vh;
+}
+
+.cursor-pointer {
+    cursor: pointer;
 }
 
 

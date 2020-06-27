@@ -1,0 +1,9 @@
+{
+    "home": {
+        "main-title": "EN_Issues Github",
+        "sub-title": "Aplicación para consultar los issues de un reporisorio en GitHub"
+    },
+    "detail-issues": {
+        "texto": "texto cualquiera"
+    }
+}
