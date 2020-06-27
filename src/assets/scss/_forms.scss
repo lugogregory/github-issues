@@ -1,0 +1,19 @@
+input,
+textarea {
+    outline: 0;
+    border: 1px solid #c3c3c3;
+    border-radius: 5px;
+    padding: 3px 7px;
+    width: 100%;
+    color: black;
+    &:disabled {
+        border: none;
+        background: #0000000f;
+        color: $color-valor-input;
+    }
+}
+
+label {
+    font-weight: 600;
+    margin-bottom: 0;
+}

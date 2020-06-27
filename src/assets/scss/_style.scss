@@ -1,0 +1,93 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    background: #F5F5F5;
+    overflow: hidden;
+    color: $color-textos;
+    font-family: 'Roboto', sans-serif;
+    @include respond-between(sm, md) {
+        font-size: 0.9em;
+    }
+    @include respond-between(zero, sm) {
+        font-size: 0.8em;
+    }
+    h1 {
+        font-size: 2em;
+    }
+    h2,
+    h3 {
+        font-size: 1.5em;
+    }
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    color: $color-link;
+}
+
+.font-light {
+    color: $color-ligth;
+}
+
+
+/**/
+
+
+/*-------------------------------------------- Clases genéricas*/
+
+.shadow {
+    -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+    box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.25);
+}
+
+.ficha {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.75);
+    border-radius: 0.625rem;
+    padding: 1em 1.25em;
+    height: auto;
+}
+
+
+/* -------------------------------------------- Scroll*/
+
+
+/* width */
+
+ ::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.25);
+    background: #b8b8b8;
+    border-radius: 2px;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #efefef;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #d6d6d6;
+}
+
+
+/* -------------------------------------------- Scroll*/
