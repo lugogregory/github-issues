@@ -24,8 +24,6 @@ export const getVisibleIssues = createSelector(
             switch (filter) {
                 default:
                     return issues;
-                // case 'completed':
-                //     return todos.filter(t => t.completed);
             }
         }
         return issues;
@@ -57,11 +55,7 @@ export const getFilter = createSelector(
             const filter = router.state.params.filter;
             switch (filter) {
                 default:
-                    return 'all';
-                // case 'completed':
-                //     return 'completed';
-                // case 'active':
-                //     return 'active';
+                     return 'all';
             }
         }
         return 'all';

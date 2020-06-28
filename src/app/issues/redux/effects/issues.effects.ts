@@ -37,7 +37,7 @@ export class IssuesEffects {
             loadIssuesSuccess(),
           ]),
           catchError(error => {
-            Swal.fire({ title: 'Atención', text: 'URL de repositorio no existe o no tiene issues', icon: 'warning' });
+            Swal.fire({ title: 'Atención', text: 'URL de repositorio no existe o no tiene issues, debe tener éste formato: https://github.com/USUARIO/REPO', icon: 'warning' });
             return of(loadIssuesFail({ error }));
           }
           ),
