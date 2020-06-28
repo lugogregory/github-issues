@@ -10,11 +10,14 @@ export class HeaderComponent implements OnInit {
 
   constructor(private translate: TranslateService) { }
 
+  currentLang = this.translate.store.currentLang;
+
   ngOnInit(): void {
   }
 
   changeLanguage(language) {
     this.translate.use(language);
+    this.currentLang = language;
   }
 
 }

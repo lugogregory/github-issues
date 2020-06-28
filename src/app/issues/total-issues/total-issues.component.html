@@ -1,0 +1,17 @@
+<div class="ficha">
+    <h1 class="text-center mt-2 mb-3">{{"home.sub-title" | translate}}</h1>
+    <div class="d-flex justify-content-between mt-5 mb-3">
+        <mat-form-field class="input-repo">
+            <mat-label>{{"home.label-repo" | translate}}</mat-label>
+            <input class="input-repo" matInput type="text" [(ngModel)]="repoInput" autofocus (keyup.enter)="getIssues()">
+            <button class="button-close-input" mat-button *ngIf="repoInput" matSuffix mat-icon-button aria-label="Clear" (click)="repoInput=''">
+                  <mat-icon>close</mat-icon>
+                </button>
+        </mat-form-field>
+        <button class="d-flex btn btn-search ml-4" [disabled]="!repoInput || !(repoInput && repoInput.length > 0) " (click)="getIssues()"><i class="material-icons mr-1"> search </i> {{"home.search" | translate}}</button>
+    </div>
+
+    <ng-container *ngIf="issues$ | async  as issues">
+        <app-table-issues *ngIf="issues && issues.length > 0" [issue]="issues" (rowSelect)="getComments($event)"></app-table-issues>
+    </ng-container>
+</div>

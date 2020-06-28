@@ -63,6 +63,20 @@ a {
     border: none;
 }
 
+table {
+    width: 100%;
+}
+
+.mat-form-field {
+    font-size: 14px;
+    width: 100%;
+}
+
+td,
+th {
+    width: 25%;
+}
+
 
 /*-------------------------------------------- Clases genéricas*/
 
@@ -76,12 +90,18 @@ a {
     position: relative;
     background-color: $bg-ficha;
     border-radius: 0.625rem;
-    padding: 1em 1.25em;
+    padding: 2em;
     height: 100vh;
+    overflow: auto;
 }
 
 .cursor-pointer {
     cursor: pointer;
+}
+
+.flag-active {
+    background-image: linear-gradient( rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5));
+    border-radius: 5px;
 }
 
 

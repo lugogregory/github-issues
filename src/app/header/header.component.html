@@ -1,10 +1,16 @@
 <nav class="navbar navbar-dark bg-dark">
     <p class="navbar-brand d-flex align-items-center">
-        <img src="/assets/images/favicon.png" width="30" height="30" class="d-inline-block align-top" alt="icono de github" loading="favicon">
+        <img src="/assets/images/git-hub.png" width="40" height="40" class="d-inline-block align-top" alt="icono de github" loading="favicon">
         <span class="ml-3">{{ "home.main-title" | translate }}</span>
     </p>
     <span class="navbar-text">
-        <img src="/assets/icons/spain_flag.ico" width="30" height="30" class="d-inline-block align-top cursor-pointer" alt="spain flag" (click)="changeLanguage('es')">
-        <img src="/assets/icons/us_flag.ico" width="30" height="30" class="d-inline-block align-top cursor-pointer ml-1" alt="US flag" (click)="changeLanguage('en')">
+        <img src="/assets/icons/spain_flag.ico" width="30" height="30"
+        class="d-inline-block align-top cursor-pointer flag-inactive" alt="spain flag"
+        [ngClass]="{'flag-active':currentLang === 'es'}"
+        (click)="changeLanguage('es')">
+        <img src="/assets/icons/us_flag.ico" width="30" height="30"
+        class="d-inline-block align-top cursor-pointer ml-1" alt="US flag"
+        [ngClass]="{'flag-active':currentLang === 'en'}"
+        (click)="changeLanguage('en')">
     </span>
 </nav>

@@ -1,9 +1,21 @@
 {
     "home": {
-        "main-title": "EN_Issues Github",
-        "sub-title": "Aplicación para consultar los issues de un reporisorio en GitHub"
+        "main-title": "Issues Github",
+        "sub-title": "Application to check the issues of a repository on GitHub",
+        "label-repo": "Enter the url of a repository on Github",
+        "search": "Search"
+    },
+    "table": {
+        "filter": "Filter",
+        "filter-place-holder": "Enter a value to filter",
+        "user": "User",
+        "comments": "Comments",
+        "create-date": "Creation date",
+        "title": "Title",
+        "comment": "Comment"
     },
     "detail-issues": {
-        "texto": "texto cualquiera"
+        "sub-title": "Comments section",
+        "back": "Back"
     }
 }

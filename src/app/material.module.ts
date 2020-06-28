@@ -5,6 +5,8 @@ import { MatSliderModule } from '@angular/material/slider';
 import {MatCardModule} from '@angular/material/card';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
+import {MatTableModule} from '@angular/material/table';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -12,7 +14,9 @@ import {MatIconModule} from '@angular/material/icon';
       MatSliderModule,
       MatCardModule,
       MatInputModule,
-      MatIconModule
+      MatIconModule,
+      MatTableModule,
+      MatPaginatorModule
     ]
   })
 

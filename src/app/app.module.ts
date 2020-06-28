@@ -11,7 +11,8 @@ import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 
 // Paginas internas
-import { PagesModule } from './pages/pages/pages.module';
+import { IssuesModule } from './issues/issues.module';
+
 
 // Componentes comunes
 import { AppComponent } from './app.component';
@@ -21,6 +22,14 @@ import { HeaderComponent } from './header/header.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+
+// Store
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { CustomSerializer } from './reducers/custom-route-serializer';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 
 @NgModule({
@@ -40,7 +49,13 @@ import {HttpClient, HttpClientModule} from '@angular/common/http';
             deps: [HttpClient]
         }
     }),
-    PagesModule,
+    StoreRouterConnectingModule.forRoot({
+      serializer: CustomSerializer
+    }),
+    StoreModule.forRoot(reducers, { metaReducers }),
+    EffectsModule.forRoot([]),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
+    IssuesModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,

@@ -1,0 +1,33 @@
+<mat-form-field>
+    <mat-label>{{"table.filter" | translate}}</mat-label>
+    <input matInput (keyup)="applyFilter($event)" [placeholder]="'table.filter-place-holder' | translate" #input>
+</mat-form-field>
+
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <ng-container matColumnDef="user">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.user" | translate}} </th>
+            <td mat-cell *matCellDef="let row"> {{row.user.login}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="body">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.comment" | translate}} </th>
+            <td mat-cell *matCellDef="let row"> {{row.body }}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="created_at">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.create-date" | translate}} </th>
+            <td mat-cell *matCellDef="let row"> {{row.created_at | date: 'dd/MM/yy'}} </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <tr class="mat-row" *matNoDataRow>
+            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>

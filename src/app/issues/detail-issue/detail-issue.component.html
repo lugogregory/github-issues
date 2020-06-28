@@ -1,0 +1,7 @@
+<div class="ficha">
+    <h1 class="text-center mt-2 mb-3">{{"detail-issues.sub-title" | translate}}</h1>
+    <button class="d-flex btn btn-search ml-auto" (click)="goToHome()"><i class="material-icons mr-1"> navigate_before </i> {{"detail-issues.back" | translate}}</button>
+    <ng-container *ngIf="comments$ | async  as comments">
+        <app-table-comments *ngIf="comments && comments.length > 0" [comment]="comments"></app-table-comments>
+    </ng-container>
+</div>

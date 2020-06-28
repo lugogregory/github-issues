@@ -4,3 +4,9 @@
     -moz-transition: all 0.15s ease-in-out;
     transition: all 0.15s ease-in-out;
 }
+
+.btn-search {
+    background-color: $bg-header;
+    color: $color-white;
+    height: fit-content;
+}
