@@ -3,13 +3,13 @@
     "version": "0.0.0",
     "scripts": {
         "ng": "ng",
-        "start": "ng serve",
+        "start": "node server.js",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
         "e2e": "ng e2e",
         "heroku-postbuild": "ng build --prod",
-        "postinstall": "ngcc"
+        "postinstall": "ng build --aot -prod"
     },
     "private": true,
     "engines": {
@@ -17,19 +17,19 @@
         "npm": "6.13.4"
     },
     "dependencies": {
-        "@angular/animations": "^9.0.7",
+        "@angular/animations": "^10.0.1",
         "@angular/cdk": "^9.2.4",
-        "@angular/common": "~9.0.5",
-        "@angular/compiler": "~9.0.5",
-        "@angular/core": "~9.0.5",
-        "@angular/forms": "~9.0.5",
-        "@angular/material": "^9.2.4",
         "@angular/cli": "^10.0.0",
-        "@angular/compiler-cli": "^9.0.7",
-        "@angular/platform-browser": "~9.0.5",
-        "@angular/platform-browser-dynamic": "~9.0.5",
-        "@angular/router": "~9.0.5",
-        "@angular/service-worker": "~9.0.5",
+        "@angular/common": "~10.0.1",
+        "@angular/compiler": "~10.0.1",
+        "@angular/compiler-cli": "^10.0.1",
+        "@angular/core": "~10.0.1",
+        "@angular/forms": "~10.0.1",
+        "@angular/material": "^9.2.4",
+        "@angular/platform-browser": "~10.0.1",
+        "@angular/platform-browser-dynamic": "~10.0.1",
+        "@angular/router": "~10.0.1",
+        "@angular/service-worker": "~10.0.1",
         "@ngrx/effects": "^9.2.0",
         "@ngrx/entity": "^9.2.0",
         "@ngrx/router-store": "^9.2.0",
@@ -37,17 +37,18 @@
         "@ngrx/store-devtools": "^9.2.0",
         "@ngx-translate/core": "^13.0.0",
         "@ngx-translate/http-loader": "^6.0.0",
+        "express": "^4.17.1",
         "ngx-toastr": "^12.1.0",
-        "typescript": "~3.7.5",
+        "path": "^0.12.7",
         "rxjs": "^6.5.5",
         "tslib": "^1.10.0",
+        "typescript": "~3.9.5",
         "zone.js": "~0.10.2"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.900.5",
         "@angular/cli": "^10.0.0",
-        "@angular/compiler-cli": "^9.0.7",
-        "@angular/language-service": "~9.0.5",
+        "@angular/language-service": "~10.0.1",
         "@types/jasmine": "~3.5.0",
         "@types/jasminewd2": "~2.0.3",
         "@types/node": "^12.11.1",
@@ -62,7 +63,6 @@
         "karma-jasmine-html-reporter": "^1.4.2",
         "protractor": "~5.4.3",
         "ts-node": "~8.3.0",
-        "tslint": "~5.18.0",
-        "typescript": "~3.7.5"
+        "tslint": "~5.18.0"
     }
 }
