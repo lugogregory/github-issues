@@ -5,7 +5,7 @@ import { IssuesModuleState } from '../redux/states';
 import { Issue } from '../models';
 import { Observable } from 'rxjs';
 import { getVisibleIssues } from '../redux/selectors/issues.selector';
-import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -22,6 +22,7 @@ export class TotalIssuesComponent implements OnInit {
 
   constructor(
     private store: Store<IssuesModuleState>,
+    private toastrService: ToastrService
   ) {
 
     this.issues$ = this.store.pipe(
@@ -32,21 +33,29 @@ export class TotalIssuesComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  getIssues() {
-    if ( this.repoInput && this.repoInput.length > 0 ) {
+  deserialize(repo: string): string | null {
+    const data: any[] = repo.split('/');
+    if ( data && data.length >= 5 ) {
+      const user = data[3];
+      const rep = data[4];
+      return `https://api.github.com/repos/${user}/${rep}/issues`;
+    }
+    return null;
+  }
 
-      // https://api.github.com/repos/lugogregory/weather-app/issues
-      // https://github.com/tj/go-naturaldate/
-
-      const data: any[] = this.repoInput.split('/');
-      console.log(data);
-      if ( data && data.length >= 5 ) {
-        const user = data[3];
-        const repo = data[4];
-        const action = loadIssuesRequest({repoUrl: `${this.apiRequest}${user}/${repo}/issues`});
+  getIssues(repo: string = this.repoInput): string | null {
+    if ( repo && repo.length > 0 ) {
+      const url = this.deserialize(repo);
+      if ( url ) {
+        const action = loadIssuesRequest({repoUrl: url});
         this.store.dispatch(action);
+        return url;
       } else {
-        Swal.fire({ title: 'Atención', text: 'URL incorrecta, debe tener éste formato: https://github.com/USUARIO/REPO', icon: 'warning' });
+        this.toastrService.warning(
+          'URL incorrecta, debe tener éste formato: https://github.com/USUARIO/REPO',
+          'Atención'
+        );
+        // return null;
       }
     }
   }

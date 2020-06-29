@@ -2,7 +2,7 @@
     "home": {
         "main-title": "Issues Github",
         "sub-title": "Application to check the issues of a repository on GitHub",
-        "label-repo": "Enter the url of a repository on Github",
+        "label-repo": "Enter the url of a repository on Github, example: https://github.com/lugogregory/github-issues",
         "search": "Search"
     },
     "table": {

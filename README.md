@@ -9,7 +9,7 @@ SPA que sirve como visualizador de issues de repositorios en Github, puedes nave
 1. Estilos SCSS y Bootstrap
 2. Angular Material
 3. Ng-translate
-4. sweetalert2
+4. Ngx-toastr
 5. Ngrx, implementación de actions, reducers, effects, selectors, states
 6. Async pipe para las subscripciones.
 

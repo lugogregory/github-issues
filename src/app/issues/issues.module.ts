@@ -25,6 +25,9 @@ import * as fromEffects from './redux/effects';
 import { AppRoutingModule } from '../app-routing.module';
 import { TableCommentsComponent } from './table-comments/table-comments.component';
 
+// Toastr
+import { ToastrModule } from 'ngx-toastr';
+
 @NgModule({
   declarations: [TotalIssuesComponent, DetailIssueComponent, TableIssuesComponent, TableCommentsComponent],
   imports: [
@@ -33,6 +36,9 @@ import { TableCommentsComponent } from './table-comments/table-comments.componen
     AppRoutingModule,
     CommonModule,
     MaterialModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-full-width',
+    }),
     TranslateModule,
     StoreModule.forFeature('issues-module', fromReducers.reducersIssues, {
       metaReducers: fromReducers.metaReducersIssues

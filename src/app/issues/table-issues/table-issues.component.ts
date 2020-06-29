@@ -4,7 +4,7 @@ import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { Issue } from '../models';
 import { Router } from '@angular/router';
-import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-table-issues',
@@ -32,7 +32,10 @@ export class TableIssuesComponent implements OnInit {
 
   @Output() rowSelect: EventEmitter<Issue> = new EventEmitter();
 
-  constructor(public router: Router) { }
+  constructor(
+    public router: Router,
+    private toastrService: ToastrService
+  ) { }
 
   ngOnInit(): void {
   }
@@ -42,7 +45,10 @@ export class TableIssuesComponent implements OnInit {
       this.rowSelect.emit(issue);
       this.router.navigate(['/detail-issue']);
     } else {
-      Swal.fire({ title: 'Atención', text: 'El issue seleccionado no tiene comentarios', icon: 'warning' });
+      this.toastrService.warning(
+        'El issue seleccionado no tiene comentarios',
+        'Atención'
+      );
     }
   }
 

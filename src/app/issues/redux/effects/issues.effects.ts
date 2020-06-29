@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType, createEffect } from '@ngrx/effects';
 import { of } from 'rxjs';
 import { switchMap, catchError, mergeMap, map } from 'rxjs/operators';
-import Swal from 'sweetalert2';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -24,7 +24,8 @@ export class IssuesEffects {
 
   constructor(
     private actions$: Actions,
-    private issuesService: IssuesService
+    private issuesService: IssuesService,
+    private toastrService: ToastrService
   ) { }
 
   loadIssuesRequest = createEffect(() => this.actions$.pipe(
@@ -37,7 +38,10 @@ export class IssuesEffects {
             loadIssuesSuccess(),
           ]),
           catchError(error => {
-            Swal.fire({ title: 'Atención', text: 'URL de repositorio no existe o no tiene issues, debe tener éste formato: https://github.com/USUARIO/REPO', icon: 'warning' });
+            this.toastrService.warning(
+              'URL de repositorio no existe o no tiene issues, debe tener éste formato: https://github.com/USUARIO/REPO',
+              'Atención',
+            );
             return of(loadIssuesFail({ error }));
           }
           ),
@@ -55,7 +59,10 @@ export class IssuesEffects {
             loadCommentsSuccess(),
           ]),
           catchError(error => {
-            Swal.fire({ title: 'Atención', text: 'No existen comentarios para este issue', icon: 'warning' });
+            this.toastrService.warning(
+              'No existen comentarios para este issue',
+              'Atención'
+            );
             return of(loadCommentsFail({ error }));
           }
 

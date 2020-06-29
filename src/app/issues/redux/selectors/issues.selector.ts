@@ -6,7 +6,7 @@ import { getRouterState } from '../../../reducers/index';
 
 export const geIssuesState = createSelector(
     getIssuesModuleState,
-    state => state.issues
+    state => state?.issues
 );
 
 export const {
