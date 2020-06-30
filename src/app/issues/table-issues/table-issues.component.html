@@ -6,36 +6,55 @@
 <div class="mat-elevation-z8">
     <table mat-table [dataSource]="dataSource" matSort>
 
+        <!-- State -->
+        <ng-container matColumnDef="state" style="width: 15%">
+            <th style="width: 15%" mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.state" | translate}} </th>
+            <td style="width: 15%" mat-cell *matCellDef="let row">
+                <span *ngIf="row.state === 'closed'">
+                    <i class="material-icons font-icon-close mr-1" > not_interested </i> {{"table.closed" | translate}}
+                </span>
+                <span *ngIf="row.state === 'open'">
+                    <i class="material-icons font-icon-open mr-1" > error_outline </i> {{"table.open" | translate}}
+                </span>
+            </td>
+        </ng-container>
+
         <!-- ID Column -->
+        <ng-container matColumnDef="id">
+            <th style="width: 15%" mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.id" | translate}} </th>
+            <td style="width: 15%" mat-cell *matCellDef="let row"> {{row.id}} </td>
+        </ng-container>
+
+        <!-- Title -->
         <ng-container matColumnDef="title">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.title" | translate}} </th>
-            <td mat-cell *matCellDef="let row"> {{row.title}} </td>
+            <th style="width: 20%" mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.title" | translate}} </th>
+            <td style="width: 20%" mat-cell *matCellDef="let row"> {{row.title}} </td>
         </ng-container>
 
-        <!-- Progress Column -->
+        <!-- User -->
+        <ng-container matColumnDef="user">
+            <th style="width: 20%" mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.user" | translate}} </th>
+            <td style="width: 20%" mat-cell *matCellDef="let row"> {{row.user.login}} </td>
+        </ng-container>
+
+        <!-- Created date -->
         <ng-container matColumnDef="created_at">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.create-date" | translate}} </th>
-            <td mat-cell *matCellDef="let row"> {{row.created_at | date: 'dd/MM/yy'}}</td>
+            <th style="width: 15%" mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.create-date" | translate}} </th>
+            <td style="width: 15%" mat-cell *matCellDef="let row"> {{row.created_at | date: 'dd/MM/yy'}}</td>
         </ng-container>
 
-        <!-- Name Column -->
+        <!-- comments -->
         <ng-container matColumnDef="comments">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.comments" | translate}} </th>
-            <td mat-cell *matCellDef="let row"> {{row.comments}} </td>
+            <th style="width: 15%" mat-header-cell *matHeaderCellDef mat-sort-header> {{"table.comments" | translate}} </th>
+            <td style="width: 15%" mat-cell *matCellDef="let row"> {{row.comments}} </td>
         </ng-container>
 
-        <!-- Color Column -->
-        <!-- <ng-container matColumnDef="color">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Color </th>
-        <td mat-cell *matCellDef="let row" [style.color]="row.color"> {{row.color}} </td>
-      </ng-container>
-   -->
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row class="issues-element-row" *matRowDef="let row; columns: displayedColumns;" (click)="verComentarios(row)"></tr>
 
         <!-- Row shown when there is no matching data. -->
         <tr class="mat-row" *matNoDataRow>
-            <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+            <td class="mat-cell" colspan="6">No data matching the filter "{{input.value}}"</td>
         </tr>
     </table>
 

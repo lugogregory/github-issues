@@ -38,7 +38,7 @@ export class TotalIssuesComponent implements OnInit {
     if ( data && data.length >= 5 ) {
       const user = data[3];
       const rep = data[4];
-      return `https://api.github.com/repos/${user}/${rep}/issues`;
+      return `${this.apiRequest}${user}/${rep}/issues?state=all`;
     }
     return null;
   }
@@ -62,7 +62,6 @@ export class TotalIssuesComponent implements OnInit {
 
   getComments(issueSelect) {
     if ( issueSelect ) {
-      console.log(issueSelect);
       const action = loadCommentsRequest({issueUrl: issueSelect.comments_url});
       this.store.dispatch(action);
     }

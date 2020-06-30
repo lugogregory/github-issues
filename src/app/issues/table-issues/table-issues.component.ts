@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class TableIssuesComponent implements OnInit {
 
-  displayedColumns: string[] = ['title', 'created_at', 'comments'];
+  displayedColumns: string[] = ['state', 'id', 'title', 'user', 'created_at', 'comments'];
   dataSource: MatTableDataSource<Issue>;
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
@@ -28,6 +28,7 @@ export class TableIssuesComponent implements OnInit {
     this.dataSource = new MatTableDataSource(issue);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
+    console.log(issue);
   }
 
   @Output() rowSelect: EventEmitter<Issue> = new EventEmitter();

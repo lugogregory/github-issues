@@ -12,7 +12,11 @@
         "comments": "Comentarios",
         "create-date": "Fecha creación",
         "title": "Titulo",
-        "comment": "Comentario"
+        "comment": "Comentario",
+        "state": "Estado",
+        "open": "Abierto",
+        "id": "Id",
+        "closed": "Cerrado"
     },
     "detail-issues": {
         "sub-title": "Sección de comentarios",

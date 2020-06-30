@@ -12,7 +12,11 @@
         "comments": "Comments",
         "create-date": "Creation date",
         "title": "Title",
-        "comment": "Comment"
+        "comment": "Comment",
+        "state": "State",
+        "open": "Open",
+        "id": "Id",
+        "closed": "Closed"
     },
     "detail-issues": {
         "sub-title": "Comments section",
